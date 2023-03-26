@@ -3,9 +3,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Article extends Model {}
+class Comment extends Model {}
 
-Article.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -22,21 +22,31 @@ Article.init(
       unique: false
       }
     },
-    title: {
-      type: DataTypes.STRING,
+    article_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'article',
+        key: 'id',
+        unique: false
+      }
     },
     body: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    votes: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
     }
   },
   {
     sequelize,
     timestamps: true,
     underscored: true,
-    modelName: 'article'
+    modelName: 'comment'
   }
 );
 
-module.exports = Article
+module.exports = Comment

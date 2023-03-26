@@ -1,5 +1,6 @@
-const users = require('./Users');
-const articles = require('./Articles');
+const user = require('./Users');
+const article = require('./Articles');
+const comment = require('./Comments');
 
 
-module.exports = { articles, users };
+module.exports = { article, user, comment };
