@@ -39,4 +39,4 @@ Article.init(
   }
 );
 
-model.exports = Article
+module.exports = Article
