@@ -34,7 +34,7 @@ Article.init(
     sequelize,
     timestamps: true,
     underscored: true,
-    modelName: 'Article'
+    modelName: 'article'
   }
 );
 
