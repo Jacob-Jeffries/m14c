@@ -1,0 +1,213 @@
+/* This file will contain the style */
+* {
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+html{
+	background-color: #101010;
+}
+
+body { /*Think of this as the page wrapper - I guess this is an older way of thinking!*/
+	background-color: #202020;
+	color: white;
+	margin: 0 25px;
+	border: lightblue 3px solid;
+}
+
+h1{
+	font-size: 200%;
+	font-weight: bold;
+	display: block;
+}
+
+h2{
+	font-size: 175%;
+	font-weight: bold;
+}
+
+h3 {
+	font-size: 150%;
+	font-weight: bold;
+}
+
+h4{
+	font-size: 125%;
+	font-weight: bold;
+}
+
+h5 {
+	font-size: 112%;
+	font-weight: bold;
+}
+
+h6 {
+	font-size: 100%;
+	font-weight: bold;
+}
+
+
+/*The code below outlines the <header> tag and its elements*/
+header{
+	border: yellow 2px dashed;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 5px;
+	min-height: 100px;
+}
+
+#top{
+	display: flex;
+	border: green 2px solid;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+
+nav{
+	display: flex;
+	border: green 2px solid;
+	align-self: flex-end;
+	justify-content: center;
+	font-size: 125%;
+}
+
+.navigation li{
+	display: inline;
+	margin: 0px 5px ;
+	margin-right: 10px;
+}
+/*END of <header> tag style*/
+
+
+/*The code below outlines the main <figure> tag and its elements*/
+figure{
+	border: pink 2px solid;
+	height: 800px;
+    margin-bottom: 25px;
+    background-image: url("../images/smiley.png");
+    background-size: contain;
+	background-repeat: no-repeat;
+    background-position: center;
+}
+
+figcaption{
+	display: none;
+}
+/*END of <figure> tag style*/
+
+
+/*--------------The following code outlines the <main> tag and its elements----------------------*/
+main{
+	display: flex;
+	border: yellow 2px dashed;
+	min-height: max-content;
+}
+
+aside{
+	display:flex;
+	border: green 2px solid;
+	width: 15%;
+	padding:10px;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.add{
+	border: lightsalmon 2px solid;
+	height: 33%;
+}
+
+#main-content{
+	border: green 2px double;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width:70%;
+	padding: 10px;
+}
+
+.mc00{
+	font-size: small;
+	margin-left:10px;
+}
+
+.card{
+	border: orange 2px solid;
+}
+/*-----------------------------END of <main> tag style-------------------------------------------*/
+
+/*The Following code makes the site viewable when clicked to half 1080p*/
+@media screen and (max-width: 992px) {
+	figure{
+		height: 400px;
+	}
+	#top{
+		width: 100%;
+	}
+	nav{
+		width: 100%;
+	}
+}
+
+/*The code below tailors to landscape cell phone - 
+specifically the Note 20, bc that is what I own, and apple sucks one*/
+@media screen and (max-width: 915px) {
+	figure{
+		height: 200px;
+	}
+	main{
+		flex-wrap: wrap;
+	}
+	#main-content{
+		order: 1;
+		width: 75%;
+	}
+	#aside-01{
+		order: 1;
+		width: 25%;
+	}
+	#aside-02 {
+		order: 3;
+		width: 100%;
+	}
+}
+
+/*The following code styles a portrait cell phone*/
+@media screen and (max-width: 669px) {
+	figure{
+		display: none; /*Why don't more companies do this? I don't need your logo taking up my entire screen*/
+	}
+	.navigation li{
+		display: block;
+		margin: 10px 0;
+	}
+	main{
+		flex-direction: column;
+		align-items: center;
+	}
+	#main-content{
+		order: 1;
+		width: 100%;
+	}
+	#aside-01{
+		order: 2;
+		width: 100%;
+	}
+	#aside-02 {
+		order: 2;
+		width: 100%;
+	}
+}
+
+
+/*The following code outlines the <footer> tag and its elements*/
+footer{
+	display: flex;
+	height: 100px;
+	border: yellow 2px dashed;
+	height: 100px;
+	justify-content: center;
+	align-items: center;
+}
+/*END of <footer> tag style*/
