@@ -13,13 +13,14 @@ Article.init(
       primaryKey: true,
       autoIncrement: true
     },
-    author_fname: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    author_lname: {
-      type: DataTypes.STRING,
-      allowNull: false
+    user_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'user',
+      key: 'id',
+      unique: false
+      }
     },
     title: {
       type: DataTypes.STRING,
