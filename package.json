@@ -5,19 +5,26 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "seeds": "node ./seeds/seeds.js"
   },
   "repository": {
     "type": "git",
-    "url": "jeffries.info:/srv/git/reverseProxyTest.git"
+    "url": "git+https://github.com/Jacob-Jeffries/m14c.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^7.0.2",
+    "express-session": "^1.17.3",
     "handlebars": "^4.7.7",
-    "nodemon": "^2.0.22"
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.30.0"
   }
 }
