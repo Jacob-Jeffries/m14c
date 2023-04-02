@@ -3,8 +3,8 @@ const { User } = require('../../models');
 
 // Create New User
 router.post('/create', async (req, res) => {
+  console.log(`\nCreating new user: ${req.body.username}.`);
   try {
-    console.log(`\nCreating new user: ${req.body.username}.`);
     const userData = await User.create({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -20,6 +20,7 @@ router.post('/create', async (req, res) => {
   }
 });
 
+// Read all Users
 router.get('/', async (req, res) => {
   console.log(`\nGetting information for all users.`);
   try{
@@ -63,6 +64,7 @@ router.put('/update/:user_id', async (req, res) => {
   }
 });
 
+// Delete Single User
 router.delete('/delete/:user_id', (req, res) => {
   console.log(`Delete user with id: ${req.params.user_id}.`);
   try{
