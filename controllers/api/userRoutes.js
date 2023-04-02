@@ -11,8 +11,18 @@ router.post('/createUser', async (req, res) => {
       email: req.body.email,
       password: req.body.password
     });
-    res.status(200).json('userData');
+    res.status(200).json(userData);
 
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/user', async (req, res) => {
+  try{
+    const allUsers = await User.findAll();
+    res.status(200).json(allUsers);
   }catch(err){
     console.log(err);
     res.status(500).json(err);
@@ -38,3 +48,5 @@ router.put('/updateUser/:user_id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
