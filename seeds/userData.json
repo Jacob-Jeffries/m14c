@@ -1,0 +1,20 @@
+[
+{
+  "id": 1,
+  "user_level": 0,
+  "first_name": "Bilbo",
+  "last_name": "Baggins",
+  "username": "Bilbo_Baggins",
+  "email":"bilbo@email.com",
+  "password": "password12345"
+},
+{
+  "id": 2,
+  "user_level": 1,
+  "first_name": "Saruman",
+  "last_name": "The_White",
+  "username": "Saruman_The_White",
+  "email":"saruman@email.com",
+  "password": "password12345"
+}
+]
