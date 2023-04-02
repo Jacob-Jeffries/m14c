@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { Articles } = require('../models');
+const { Article, User, Comment } = require('../models');
 
 const articleData = require('articleData');
 
@@ -11,8 +11,10 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  await Pet.bulkCreate(articleData);
+  await Article.bulkCreate(articleData);
 
+  await Comment.bulkCreate(commentData);
+  
   process.exit(0);
 };
 
