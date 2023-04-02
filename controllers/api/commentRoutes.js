@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
-// Create New Article
+// Create New comment
 router.post('/create', async (req, res) => {
-  console.log(`\nCreating new article: ${req.body.title}.`);
+  console.log(`\nCreating new comment: \n${req.body.body}.\n`);
   try {
-    const createArticle = await Article.create({
+    const createArticle = await Comment.create({
       user_id: req.body.user_id,
-      title: req.body.title,
-      body: req.body.text
+      article_id: req.body.article_id,
+      body: req.body.body
     });
     res.status(200).json(createArticle);
   }catch(err){
@@ -29,12 +29,28 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Read Single Article
-router.get('/:article_id', async (req, res) => {
-  console.log(`\nGetting article: #${req.params.user_id}.`);
+// Read Single Comment
+router.get('/:comment_id', async (req, res) => {
+  console.log(`\nGetting comment: #${req.params.comment_id}.`);
   try {
-    const userData = await Article.findByPk(req.params.article_id)
-    res.status(200).json(userData);
+    const commentData = await Comment.findByPk(req.params.comment_id)
+    res.status(200).json(commentData);
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Read all comments for single article
+router.get('/articleComments/:article_id', async (req, res) => {
+  console.log(`\nGetting comments for article: #${req.params.article_id}.`);
+  try {
+    const commentData = await Comment.findAll({
+      where: {
+        article_id: req.params.article_id
+      }
+    })
+    res.status(200).json(commentData);
   }catch(err){
     console.log(err);
     res.status(500).json(err);
@@ -59,12 +75,12 @@ router.put('/update/:article_id', async (req, res) => {
   }
 });
 
-// Delete Single Article
-router.delete('/delete/:article_id', (req, res) => {
-  console.log(`Delete article with id: ${req.params.user_id}.`);
+// Delete Single Comment
+router.delete('/delete/:comment_id', (req, res) => {
+  console.log(`Delete comment with id: ${req.params.comment_id}.`);
   try{
-    const deleteData = Article.destroy({
-      where: { id: req.params.article_id }
+    const deleteData = Comment.destroy({
+      where: { id: req.params.comment_id }
     });
     res.status(200).json(deleteData);
     }catch(err){
