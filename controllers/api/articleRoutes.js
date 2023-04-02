@@ -28,10 +28,10 @@ router.get('/', async (req, res) => {
 });
 
 // Read Single User
-router.get('/:user_id', async (req, res) => {
-  console.log(`\nGetting information for user: #${req.params.user_id}.`);
+router.get('/:article_id', async (req, res) => {
+  console.log(`\nGetting article: #${req.params.user_id}.`);
   try {
-    const userData = await User.findByPk(req.params.user_id)
+    const userData = await Article.findByPk(req.params.article_id)
     res.status(200).json(userData);
   }catch(err){
     console.log(err);
