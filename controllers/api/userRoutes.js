@@ -19,7 +19,7 @@ router.post('/createUser', async (req, res) => {
   }
 });
 
-router.get('/user', async (req, res) => {
+router.get('/', async (req, res) => {
   try{
     const allUsers = await User.findAll();
     res.status(200).json(allUsers);
@@ -30,7 +30,7 @@ router.get('/user', async (req, res) => {
 });
 
 // Read Single User
-router.get('/singleUser/:user_id', async (req, res) => {
+router.get('/:user_id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.user_id)
     res.status(200).json(userData);
