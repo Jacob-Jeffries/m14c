@@ -6,5 +6,13 @@
   "username": "Bilbo_Baggins",
   "email":"bilbo@email.com",
   "password": "password12345"
+},
+{
+  "user_level": 0,
+  "first_name": "Saruman",
+  "last_name": "The_White",
+  "username": "Saruman_The_White",
+  "email":"saruman@email.com",
+  "password": "password12345"
 }
 ]
