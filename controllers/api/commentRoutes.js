@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Article } = require('../../models');
+const { Comment } = require('../../models');
 
 // Create New Article
 router.post('/create', async (req, res) => {
@@ -17,12 +17,12 @@ router.post('/create', async (req, res) => {
   }
 });
 
-// Read all Articles
+// Read all Comments
 router.get('/', async (req, res) => {
-  console.log(`\nGetting information for all articles.`);
+  console.log(`\nGetting information for all comments.`);
   try{
-    const allArticles = await Article.findAll();
-    res.status(200).json(allArticles);
+    const allComments = await Comment.findAll();
+    res.status(200).json(allComments);
   }catch(err){
     console.log(err);
     res.status(500).json(err);
