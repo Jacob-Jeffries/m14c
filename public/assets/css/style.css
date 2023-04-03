@@ -1,54 +1,59 @@
 /* This file will contain the style */
 * {
-	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-family: 'La Belle Aurore', cursive;
 }
 
 html{
-	background-color: #101010;
+	background-image: url('../images/html_bg.jpg');
+	height: 100%;
 }
 
-body { /*Think of this as the page wrapper - I guess this is an older way of thinking!*/
-	background-color: #202020;
-	color: white;
+body { 
+	/*Think of this as the page wrapper - I guess this is an older way of thinking!*/
+	background-image: url('../images/papyrus.jpg');
+	color: black;
 	margin: 0 25px;
-	border: lightblue 3px solid;
+	min-height: 100%;
 }
 
 h1{
-	font-size: 200%;
+	font-size: 300%;
 	font-weight: bold;
 	display: block;
 }
 
 h2{
-	font-size: 175%;
+	font-size: 262%;
 	font-weight: bold;
 }
 
 h3 {
-	font-size: 150%;
+	font-size: 225%;
 	font-weight: bold;
 }
 
 h4{
-	font-size: 125%;
+	font-size: 187%;
 	font-weight: bold;
 }
 
 h5 {
-	font-size: 112%;
+	font-size: 168%;
 	font-weight: bold;
 }
 
 h6 {
-	font-size: 100%;
+	font-size: 150%;
 	font-weight: bold;
 }
 
+p {
+	font-size: 125%;
+	font-weight: bold;
+}
 
-/*The code below outlines the <header> tag and its elements*/
+/* The code below outlines the <header> tag and its elements */
 header{
-	border: yellow 2px dashed;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -58,7 +63,6 @@ header{
 
 #top{
 	display: flex;
-	border: green 2px solid;
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
@@ -66,7 +70,6 @@ header{
 
 nav{
 	display: flex;
-	border: green 2px solid;
 	align-self: flex-end;
 	justify-content: center;
 	font-size: 125%;
@@ -77,65 +80,50 @@ nav{
 	margin: 0px 5px ;
 	margin-right: 10px;
 }
-/*END of <header> tag style*/
+/* END of <header> tag style */
 
 
-/*The code below outlines the main <figure> tag and its elements*/
+/* The code below outlines the main <figure> tag and its elements */
 figure{
-	border: pink 2px solid;
 	height: 800px;
-    margin-bottom: 25px;
-    background-image: url("../images/smiley.png");
-    background-size: contain;
+  margin-bottom: 25px;
+  background-image: url("../images/figure.jpg");
+  background-size: contain;
 	background-repeat: no-repeat;
-    background-position: center;
+  background-position: center;
 }
 
 figcaption{
 	display: none;
 }
-/*END of <figure> tag style*/
+/* END of <figure> tag style */
 
 
-/*--------------The following code outlines the <main> tag and its elements----------------------*/
+/* The following code outlines the <main> tag and its elements */
 main{
 	display: flex;
-	border: yellow 2px dashed;
 	min-height: max-content;
-}
-
-aside{
-	display:flex;
-	border: green 2px solid;
-	width: 15%;
-	padding:10px;
-	flex-direction: column;
-	justify-content: space-around;
-}
-
-.add{
-	border: lightsalmon 2px solid;
-	height: 33%;
-}
-
-#main-content{
-	border: green 2px double;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	width:70%;
+	justify-content: space-between;
+	flex-wrap: wrap;
 	padding: 10px;
-}
-
-.mc00{
-	font-size: small;
-	margin-left:10px;
+	width: 100%;
 }
 
 .card{
-	border: orange 2px solid;
+	border: darkred 3px solid;
+	background-image: url('../images/papyrus.jpg');
+	margin: 10px;
+	padding: 10px;
 }
-/*-----------------------------END of <main> tag style-------------------------------------------*/
+/* END of <main> tag style */
+
+/* The following code outlines the <footer> tag and its elements*/
+footer{
+	text-align: center;
+	height: 100px;
+	height: 100px;
+}
+/* END of <footer> tag style */
 
 /*The Following code makes the site viewable when clicked to half 1080p*/
 @media screen and (max-width: 992px) {
@@ -176,7 +164,7 @@ specifically the Note 20, bc that is what I own, and apple sucks one*/
 /*The following code styles a portrait cell phone*/
 @media screen and (max-width: 669px) {
 	figure{
-		display: none; /*Why don't more companies do this? I don't need your logo taking up my entire screen*/
+		height: 200px;
 	}
 	.navigation li{
 		display: block;
@@ -199,15 +187,3 @@ specifically the Note 20, bc that is what I own, and apple sucks one*/
 		width: 100%;
 	}
 }
-
-
-/*The following code outlines the <footer> tag and its elements*/
-footer{
-	display: flex;
-	height: 100px;
-	border: yellow 2px dashed;
-	height: 100px;
-	justify-content: center;
-	align-items: center;
-}
-/*END of <footer> tag style*/
