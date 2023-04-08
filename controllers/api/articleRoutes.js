@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Article } = require('../../models');
 
 // Create New Article
-router.post('/create', async (req, res) => {
+router.post('/create', async(req, res) => {
   console.log(`\nCreating new article: ${req.body.title}.`);
   try {
     const createArticle = await Article.create({
