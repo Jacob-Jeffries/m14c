@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+//CRUD routes
+
+// Route POST - /api/user/create
 // Create New User
 router.post('/create', async (req, res) => {
   console.log(`\nCreating new user: ${req.body.username}.`);
@@ -20,6 +23,7 @@ router.post('/create', async (req, res) => {
   }
 });
 
+// Route GET - /api/user/
 // Read all Users
 router.get('/', async (req, res) => {
   console.log(`\nGetting information for all users.`);
@@ -32,6 +36,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Rotue GET - /api/user/:user_id
 // Read Single User
 router.get('/:user_id', async (req, res) => {
   console.log(`\nGetting information for user: #${req.params.user_id}.`);
