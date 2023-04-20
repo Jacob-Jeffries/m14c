@@ -16,5 +16,14 @@
   "username": "Saruman_The_White",
   "email":"saruman@email.com",
   "password": "password12345"
+},
+{
+  "id": 3,
+	"user_level": 1,
+	"first_name": "Gandolf",
+	"last_name": "The_White",
+	"username": "Gandolf_The_White",
+	"email": "Gandolf@email.com",
+	"password": "password12345"
 }
 ]

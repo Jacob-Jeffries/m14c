@@ -1,11 +1,15 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Comment, Article } = require('../../models');
 
+//CRUD routes
+
+// Route POST - /api/user/
 // Create New User
-router.post('/create', async (req, res) => {
+router.post('/', async (req, res) => {
   console.log(`\nCreating new user: ${req.body.username}.`);
   try {
     const userData = await User.create({
+      user_level: req.body.user_level,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       username: req.body.username,
@@ -20,6 +24,7 @@ router.post('/create', async (req, res) => {
   }
 });
 
+// Route GET - /api/user/
 // Read all Users
 router.get('/', async (req, res) => {
   console.log(`\nGetting information for all users.`);
@@ -32,6 +37,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Rotue GET - /api/user/:user_id
 // Read Single User
 router.get('/:user_id', async (req, res) => {
   console.log(`\nGetting information for user: #${req.params.user_id}.`);
@@ -44,11 +50,13 @@ router.get('/:user_id', async (req, res) => {
   }
 });
 
+// Route PUT - /api/user/:user_id
 // Update Single User
-router.put('/update/:user_id', async (req, res) => {
+router.put('/:user_id', async (req, res) => {
   console.log(`\nUpdating information for user: #${req.params.user_id}.`);
   try{
     const updateData = await User.update({
+      user_level: req.body.user_level,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       username: req.body.username,
@@ -64,8 +72,9 @@ router.put('/update/:user_id', async (req, res) => {
   }
 });
 
+// Route DELETE - /api/user/:user_id
 // Delete Single User
-router.delete('/delete/:user_id', (req, res) => {
+router.delete('/:user_id', (req, res) => {
   console.log(`Delete user with id: ${req.params.user_id}.`);
   try{
     const deleteData = User.destroy({
@@ -77,5 +86,36 @@ router.delete('/delete/:user_id', (req, res) => {
       res.status(500).json(err);
   }
 });
+
+// Route GET - /api/user/comments/:user_id
+// Get all comments by a single user
+router.get('/comment/:user_id', async (req, res) => {
+  console.log(`Get all comments made by user ${req.params.user_id}`);
+  try{
+    const allUserComments = await Comment.findAll({
+      where: { user_id: req.params.user_id}
+    });
+    res.status(200).json(allUserComments);
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Route GET - /api/user/comments/:user_id
+// Get all comments by a single user
+router.get('/article/:user_id', async (req, res) => {
+  console.log(`Get all articles made by user ${req.params.user_id}`);
+  try{
+    const allUserComments = await Article.findAll({
+      where: { user_id: req.params.user_id}
+    });
+    res.status(200).json(allUserComments);
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
