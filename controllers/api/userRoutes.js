@@ -50,6 +50,7 @@ router.get('/:user_id', async (req, res) => {
   }
 });
 
+// Route PUT - /api/user/:user_id
 // Update Single User
 router.put('/:user_id', async (req, res) => {
   console.log(`\nUpdating information for user: #${req.params.user_id}.`);
@@ -71,8 +72,9 @@ router.put('/:user_id', async (req, res) => {
   }
 });
 
+// Route DELETE - /api/user/:user_id
 // Delete Single User
-router.delete('/delete/:user_id', (req, res) => {
+router.delete('/:user_id', (req, res) => {
   console.log(`Delete user with id: ${req.params.user_id}.`);
   try{
     const deleteData = User.destroy({
