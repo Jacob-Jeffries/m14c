@@ -13,4 +13,12 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/oops', async (req, res) => {
+  try {
+      res.render('oops')
+  } catch {
+      res.status(500).json(err);
+  }
+});
+
 module.exports = router;
