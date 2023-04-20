@@ -51,10 +51,11 @@ router.get('/:user_id', async (req, res) => {
 });
 
 // Update Single User
-router.put('/update/:user_id', async (req, res) => {
+router.put('/:user_id', async (req, res) => {
   console.log(`\nUpdating information for user: #${req.params.user_id}.`);
   try{
     const updateData = await User.update({
+      user_level: req.body.user_level,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       username: req.body.username,
