@@ -73,4 +73,20 @@ router.delete('/delete/:article_id', (req, res) => {
   }
 });
 
+// Read all comments for single article
+router.get('/articleComments/:article_id', async (req, res) => {
+  console.log(`\nGetting comments for article: #${req.params.article_id}.`);
+  try {
+    const commentData = await Comment.findAll({
+      where: {
+        article_id: req.params.article_id
+      }
+    })
+    res.status(200).json(commentData);
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
