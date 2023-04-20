@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Comment, Article } = require('../../models');
 
 //CRUD routes
 
@@ -86,5 +86,36 @@ router.delete('/:user_id', (req, res) => {
       res.status(500).json(err);
   }
 });
+
+// Route GET - /api/user/comments/:user_id
+// Get all comments by a single user
+router.get('/comment/:user_id', async (req, res) => {
+  console.log(`Get all comments made by user ${req.params.user_id}`);
+  try{
+    const allUserComments = await Comment.findAll({
+      where: { user_id: req.params.user_id}
+    });
+    res.status(200).json(allUserComments);
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Route GET - /api/user/comments/:user_id
+// Get all comments by a single user
+router.get('/article/:user_id', async (req, res) => {
+  console.log(`Get all articles made by user ${req.params.user_id}`);
+  try{
+    const allUserComments = await Article.findAll({
+      where: { user_id: req.params.user_id}
+    });
+    res.status(200).json(allUserComments);
+  }catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
