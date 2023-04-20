@@ -3,12 +3,13 @@ const { User } = require('../../models');
 
 //CRUD routes
 
-// Route POST - /api/user/create
+// Route POST - /api/user/
 // Create New User
-router.post('/create', async (req, res) => {
+router.post('/', async (req, res) => {
   console.log(`\nCreating new user: ${req.body.username}.`);
   try {
     const userData = await User.create({
+      user_level: req.body.user_level,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       username: req.body.username,
