@@ -102,7 +102,8 @@ router.get('/article/:user_id', async (req, res) => {
   }
 });
 
-// Login
+// Route POST - /api/user/login
+// Login Route
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -135,7 +136,12 @@ router.post('/login', async (req, res) => {
       res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });      
     });
   } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
+// Route POST - /api/user/logout
 //Logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
@@ -146,7 +152,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
-
 
 module.exports = router;
