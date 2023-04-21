@@ -11,17 +11,6 @@ const sequelize = require('./config/connection');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware 
-const hbs = exphbs.create();
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(routes);
-
 // Set up sessions with cookies
 const sess = {
   secret: 'Prepared is me marianne pleasure likewise debating',
@@ -35,6 +24,19 @@ const sess = {
     db: sequelize,
   }),
 };
+
+app.use(session(sess));
+
+// Middleware 
+const hbs = exphbs.create();
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
