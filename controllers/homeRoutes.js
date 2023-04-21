@@ -2,7 +2,8 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth')
 
-const { User, Comment, Article } = require('../models');
+const { User, Article, Comment  } = require('../models');
+
 
 router.get('/', async (req, res) => {
   try {
@@ -42,7 +43,5 @@ router.get('/dashboard', withAuth, async (req, res) => {
     return;
   }
 });
-
-
 
 module.exports = router;
