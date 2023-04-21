@@ -8,14 +8,6 @@ html{
 	height: 100%;
 }
 
-body { 
-	/*Think of this as the page wrapper - I guess this is an older way of thinking!*/
-	background-image: url('../images/papyrus.jpg');
-	color: black;
-	margin: 0 25px;
-	min-height: 100%;
-}
-
 h1{
 	font-size: 300%;
 	font-weight: bold;
@@ -52,33 +44,27 @@ p {
 	font-weight: bold;
 }
 
+body { 
+	/*Think of this as the page wrapper - I guess this is an older way of thinking!*/
+	background-image: url('../images/papyrus.jpg');
+	color: black;
+	margin: 0 25px;
+	min-height: 100%;
+}
+
 /* The code below outlines the <header> tag and its elements */
 header{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 	padding: 5px;
 	min-height: 100px;
 }
 
-#top{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 10px;
-}
-
 nav{
-	display: flex;
-	align-self: flex-end;
-	justify-content: center;
-	font-size: 125%;
-}
-
-.navigation li{
-	display: inline;
-	margin: 0px 5px ;
-	margin-right: 10px;
+	background-image: url('../images/papyrus.jpg');
+	padding: 20px;
+	width: 100%;
 }
 /* END of <header> tag style */
 
@@ -86,11 +72,11 @@ nav{
 /* The code below outlines the main <figure> tag and its elements */
 figure{
 	height: 800px;
-  margin-bottom: 25px;
-  background-image: url("../images/figure.jpg");
-  background-size: contain;
+  	margin-bottom: 25px;
+  	background-image: url("../images/figure.jpg");
+  	background-size: contain;
 	background-repeat: no-repeat;
-  background-position: center;
+  	background-position: center;
 }
 
 figcaption{
@@ -117,24 +103,10 @@ main{
 }
 /* END of <main> tag style */
 
-/* The following code outlines the <footer> tag and its elements*/
-footer{
-	text-align: center;
-	height: 100px;
-	height: 100px;
-}
-/* END of <footer> tag style */
-
 /*The Following code makes the site viewable when clicked to half 1080p*/
 @media screen and (max-width: 992px) {
 	figure{
 		height: 400px;
-	}
-	#top{
-		width: 100%;
-	}
-	nav{
-		width: 100%;
 	}
 }
 
@@ -165,10 +137,6 @@ specifically the Note 20, bc that is what I own, and apple sucks one*/
 @media screen and (max-width: 669px) {
 	figure{
 		height: 200px;
-	}
-	.navigation li{
-		display: block;
-		margin: 10px 0;
 	}
 	main{
 		flex-direction: column;

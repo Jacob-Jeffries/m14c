@@ -42,6 +42,19 @@
     </figure>
 
   <body>
+    <header>
+      <nav class="navbar">
+        <span class="navbar-brand"><h1>Shire Crier</h1></span>
+        <ul class="list-inline">
+          <li class="list-inline-item" onclick="homeButton()"><button>Home</button></li>
+          <li class="list-inline-item" onclick="dashboardButton()"><button>Dashboard</button></li>
+          <li class="list-inline-item" onclick="loginButton()"><button>Login</button></li>
+      </nav>
+    </header>
+
+    <figure id="top-figure">
+        <figcaption>About Me</figcaption>
+    </figure>
     
     <!--Handlebars Input-->
     {{{body}}}
